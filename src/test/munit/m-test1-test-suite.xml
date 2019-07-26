@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="m-test1-test-suite.xml" />
+	<munit:test name="m-test1-test-suite-m-test1FlowTest" description="Test" doc:id="484e22d7-8e4d-4e2d-83a2-c8c323deb366" >
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to m-test1Flow" doc:id="02a986ae-14aa-4029-898a-c561d3eede60" name="m-test1Flow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="77fbc9a5-6912-4d81-887b-442124bf71eb" expression="#[payload]" is="#[MunitTools::equalTo('Hello')]" message="Wrong Matching "/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
